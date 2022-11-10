@@ -10,7 +10,6 @@ class Menu:protected Ente
     sf::Text text[3];
     sf::Text fases[3];
     sf::Font font;
-    sf::RenderWindow* window;
     Gerenciador_Grafico* grafico;
     class Contador{
     private:
@@ -31,7 +30,7 @@ class Menu:protected Ente
     };
     Contador n;
     public:
-    Menu(Gerenciador_Grafico* gerenciador=NULL);
+    Menu();
     ~Menu();
     void executar();
     void MostraFases();
