@@ -1,12 +1,12 @@
-#include "../../include/Ente/Ente.h"
+#include "Ente.h"
 
 
-/**static**/
+
 unsigned int Ente::geraId=0;
 
-Ente::Ente():
-gerenciador_grafico(Gerenciadores::Gerenciador_Grafico::getInstancia())
+Ente::Ente()
 {
+    grafico = grafico->getInstancia();
     id = geraId;
     geraId++;
 }
@@ -21,6 +21,7 @@ void Ente::executar()
 
 }
 
-void Ente::imprimir_se() {
-}
+void Ente::imprimir_se()
+{
 
+}
