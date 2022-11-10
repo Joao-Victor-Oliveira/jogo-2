@@ -23,19 +23,16 @@ namespace Gerenciadores {
 
         sf::RenderWindow* getWindow();
         void desenhaElemento(sf::RectangleShape conteudo);
+        void desenhaElemento(sf::Text* conteudo,int n);
         void limpaJanela();
         void fecharJanela();
         void mostrarConteudo() const;
         const bool verificaJanelaAberta();
         const bool verificaEvento(sf::Event evento);
-
-
-
-    protected:
-
-    private:
     };
 
+
 }
+
 
 #endif // GERENCIADOR_GRAFICO_H
