@@ -1,7 +1,8 @@
-#include "../../include/Gerenciadores/Gerenciador_Grafico.h"
+#include "Gerenciador_Grafico.h"
 using namespace Gerenciadores;
 
 Gerenciador_Grafico* Gerenciador_Grafico::instancia = NULL;
+
 Gerenciador_Grafico* Gerenciador_Grafico::getInstancia()
 {
     if(instancia==NULL)
@@ -14,7 +15,7 @@ Gerenciador_Grafico* Gerenciador_Grafico::getInstancia()
 
 
 Gerenciador_Grafico::Gerenciador_Grafico():
-janela(new sf::RenderWindow(sf::VideoMode(800.f, 600.f), "Jogo"))
+janela(new sf::RenderWindow(sf::VideoMode(800.f, 800.f), "Jogo"))
 {
     if(janela == NULL)
     {
@@ -50,4 +51,9 @@ const bool Gerenciador_Grafico::verificaJanelaAberta() {
 
 void Gerenciador_Grafico::mostrarConteudo() const {
     janela->display();
+}
+
+void Gerenciador_Grafico::desenhaElemento(sf::Text* conteudo,int n){
+    for(int i=0;i<n;i++)
+        janela->draw(conteudo[i]);
 }
