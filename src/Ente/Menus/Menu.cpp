@@ -1,8 +1,7 @@
 #include "Menu.h"
 
-Menu::Menu(Gerenciador_Grafico* gerenciador):n(3){
+Menu::Menu():n(3){
     grafico = gerenciador->getInstancia();
-    window = grafico->getWindow();
     grafico->limpaJanela();
     if (!font.loadFromFile("arial.ttf")){
         printf("error abrindo fonte");}
