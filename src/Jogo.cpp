@@ -2,17 +2,22 @@
 
 
 #include <iostream>
+#define MAX 5
+#define MIN 3
+#define RANDOM (rand()%(MAX-MIN))+MIN
+
 Jogo::Jogo():
 gerenciador_grafico(Gerenciadores::Gerenciador_Grafico::getInstancia()),
-personagens(),
-gerenciador_colisoes(&personagens, &obstaculos)
+//personagens(),
+//gerenciador_colisoes(&personagens, &obstaculos),
+jogador(sf::Vector2f(70, 70), sf::Vector2f(600, 100), sf::Vector2f(1.0, 1.0)),
+fase(&jogador,&gerenciador_colisoes,RANDOM,RANDOM,RANDOM,1280),
+menu(&fase)
 {
-    jogador1.setVelocidade(sf::Vector2f(0.2, 0));
-    inimigo1.setJogador(&jogador1);
-    inimigo1.setRaio(sf::Vector2f(200.f, 200.f));
-    obstaculos.inserirEntidade(static_cast <Entidades::Entidade*> (&obstaculo));
-    personagens.inserirEntidade(static_cast <Entidades::Entidade*> (&jogador1));
-    personagens.inserirEntidade(static_cast <Entidades::Entidade*> (&inimigo1));
+    /*obstaculos.inserirEntidade(static_cast<Entidades::Entidade*>(&plataforma));
+    obstaculos.inserirEntidade(static_cast<Entidades::Entidade*>(new Entidades::Plataforma(400,200)));
+    obstaculos.inserirEntidade(static_cast<Entidades::Entidade*>(new Entidades::Ninho(600,340)));
+    personagens.inserirEntidade(static_cast<Entidades::Entidade*>(&jogador));*/
 }
 
 Jogo::~Jogo()
@@ -22,7 +27,8 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
-
+    menu.executar();
+/*
     while (gerenciador_grafico->verificaJanelaAberta())
     {
         sf::Event evento;
@@ -39,5 +45,5 @@ void Jogo::executar()
         gerenciador_grafico->mostrarConteudo();
 
     }
-
+*/
 }
